@@ -34,14 +34,13 @@ for (let i = 0; i < objectsImg.length; i++){
             img.src = objectsImg[i]
             let x = getRandomInt(0,500);
             let y = getRandomInt(0,300);
-            // let x = getRandonArbitrary(0, 500)
-            // let y = getRandonArbitrary(0, 300)
+       
             console.log(x)
             console.log(y)
             
 
-        const pic = new picture(x, y)
-            pic.drawCharacter(player)
+       // const pic = new picture(x, y)
+       //     pic.drawCharacter(player)
 
         const enemy = new picture(x,y)
             enemy.drawEnemy(img)
