@@ -62,7 +62,21 @@ function getRandomInt(min, max){
 
 
 
-
+//function myMove() {
+  //let id = null;
+  //const elem = document.getElementById("animate");   
+  //let pos = 0;
+  //clearInterval(id);
+  //id = setInterval(frame, .50);
+  //function frame() {
+   // if (pos == 3500) {
+   //   clearInterval(id);
+  //  } else {
+  //    pos++; 
+  //    elem.style.left = pos + "px"; 
+//    }
+//  }
+//}
 
 
 
