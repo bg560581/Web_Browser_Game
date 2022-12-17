@@ -1,171 +1,66 @@
 // //create game area
 
 let canvas = document.getElementById("gameArea");
-    let ctx = canvas.getContext("2d");
-    let x = canvas.width - 500;
-    let y = canvas.height - 25;
+let ctx = canvas.getContext("2d");
+let x = canvas.width - 500;
+let y = canvas.height - 25;
+let dx = -1
 
 
+function drawCircle() {
+    ctx.beginPath();
+    ctx.arc(x, y, 15, 0, Math.PI*2);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
+    ctx.x = 0;
+}
 
-    function drawPlayer() {
-        ctx.beginPath();
-        ctx.arc(x, y, 15, 0, Math.PI*2);
-        ctx.fillStyle = "#0095DD";
-        ctx.fill();
-        ctx.closePath();
-        ctx.x = 0;
-    }  
- const id = setInterval(()=> {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        drawPlayer()
-        x += 1
-
-        if (x > canvas.width + 11){
-            clearInterval(id)
-        }
-        if (clearInterval() === 'true'){
-        setInterval(id, 10)
-        }
-    }, 20);
+const circle = setInterval(() => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); 
+    drawCircle()
+    rect()    
+    x -= dx
+    if (x >= canvas.width + 11) {
+        clearInterval(circle);
+    }
+}, 20)
 
 
-//figure out a way to get the draw function in the re
+let rect = function rect(){
+    ctx.fillRect(475, 250, 25, 75);
+}
+// function collisionDetection() {
+//     let a = circle;
+//     let b = rect()
+//     if (x > a.x && x < b.x && y > a.y && y < b.y) {
+//         alert('Goal!')
+//     }
+//     console.log(collisionDetection)  
+// }
+
+// collisionDetection()
+
+// function collisionDetection(){
+//     let circle = drawCircle();
+//     let rect = rect();
+//     return !(
+//     ((a.y + a.height) < (b.y)) ||
+//     (a.y > (b.y + b.height)) ||
+//     ((a.x + a.width) < b.x) ||
+//     (a.x > (b.x + b.width))
+//     );
+// }
+
+// if (collisionDetection == true){
+//     alert('goal!')
+// }
 
 
-let start = 0;
-
-function animate(timestamp) { 
-  const elapsed = timestamp - start;
-  if (elapsed > 200) {
-    start = timestamp;
-    tick();
+function detectCollision(circle, rect) {
+    if ((x > circle.width && y > circle.width) || (x > rect.width && x > rect.height)) {
+      alert("Collision detected");
+    }
   }
-  requestAnimationFrame(animate); 
-}
-let started = false
+  
 
-//need to pass id variable in animate function in order to get constant motion
-if (!started){
-    animate();
-}
-function animate(){
-    draw();
-    requestAnimationFrame(animate)
-}
-
-
-
-    // function drawPlayer2() {
-    //     ctx.fillStyle = "#FF0000";
-    //     ctx.fillRect(x, 10, 50, 50);
-    // }
-    // function draw() {
-    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //     drawPlayer();
-    //     // drawPlayer2();
-    //     x -= dx;
-    // }
-    // function draw2(){
-    //     ctx.clearRect(0,0, canvas.width, canvas.height)
-    //     drawPlayer2();
-    //     x += dx;
-    // }
-    // setInterval(draw2, .5)
-    // draw()
-    // setInterval(draw, 10)
-    // draw2()
-
-
-      
-    
-
-
-
-
-    // if (x = 500){
-    //         path == true
-    // }
-
-
-    // while (true){
-    // setInterval(draw, 0.25)
-// } 
-    // setInterval(draw, 0.25)
-
-    
-    // var motion = true
-    //     setInterval(
-    //         function (){
-    //             console.log(motion)
-    //         if (motion){
-    //             draw
-    //         }else{
-    //             return
-    //         }                
-    //          .05)
-        // setTimeout(
-        //     setInterval(draw2, .05))
-    
-    // const tree = new Image();
-    // tree.src = 'tree.png'
-    // tree.onload = function(){
-    //     ctx.drawImage(tree, 50, 100)
-    // }
-    
-    
-        
-    // class picture {
-    //     constructor(x, y, dx, dy) {
-    //         this.x = x;
-    //         this.y = y;
-    //         this.dx = dx
-    //         this.dy = dy
-    //     }
-    //     drawCharacter(player) {
-    //         player.onload = function() {
-    //             ctx.drawImage(player, 50, 100);
-    //             console.log(player)
-    //         };
-    //     }
-    //     drawEnemy(enemy){
-    //         enemy.onload = function(){
-    //             ctx.drawImage(enemy, 300, 175)
-    //             console.log(enemy)
-    //         };
-    //     }
-    
-    // }
-    
-
-// function startGame() {
-//     arena.start();
-// }
-
-
-
-// var pic = new picture('','')
-// pic.drawCharacter(player)
-
-
-// let objectsImg = ['boulder.png', 'sword.png', 'staff.png']
-// for (let i = 0; i < objectsImg.length; i++){
-//         const rock = new Image();
-//         rock.src = objectsImg[i]
-//             let x = getRandomInt(0,500);
-//             let y = getRandomInt(0,300);
-//             console.log(x)
-//             console.log(y)
-            
-//             const enemy = new picture(x,y)
-//             enemy.drawEnemy(rock)
-            
-//         }
-        
-        
-//         function getRandomInt(min, max){
-//     min = Math.ceil(min);
-//     max = Math.floor(max);
-//     return Math.floor(Math.random() * (max - min) + min);
-// }
-
-// drawPlayer()
