@@ -2,13 +2,26 @@ let canvas;
 let context;
 
 window.onload = init;
-
+//init() = false;
+//window.onload = button
+//let button = createElement('button')
+//button.textContent = 'Start Game'
+//button.addEventListener('click', function(){
+//   init() == true
+//   startGameHide(button)
+});
 function init(){
     canvas = document.getElementById('canvas');
     context = canvas.getContext('2d');
     createWorld()
 
     window.requestAnimationFrame(gameLoop);
+}
+
+//function startGameHide(button){
+//    if (init() == false){
+//button.style.display = 'block'}
+// else {button.style.display == 'none'}
 }
 
 const canvasWidth = 750;
