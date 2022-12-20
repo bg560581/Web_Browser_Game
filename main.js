@@ -11,11 +11,7 @@ function init(){
     window.requestAnimationFrame(gameLoop);
 }
 
-const canvasWidth = 750;
-const canvasHeight = 400;
-
-
-
+        
 
 class GameCharacters{
     constructor(context, x, y, vx, vy, width, height){
@@ -51,35 +47,7 @@ class Square extends GameCharacters {
 
 
 
-let gameObjects;
-let ball;
-let goal;
-let player1;
-let obs1;
-let obs2;
-let obs3;
-function createWorld(){
-    ball = new Square(context, 5, 325, 0, 0, 25, 30);
-    goal = new Square(context, 725, 325, 0, 0, 75, 75);
-    goal.goal = true
-    player1 = new Square(context, 5, 325, 0, 0, 25, 30);
-    player1.player1 = true
-    obs1 = new Square(context, 250, 150, 50, 50, 25, 25);
-    obs2 = new Square(context, 350, 75, -50, 50, 25, 25);
-    obs3 = new Square(context, 300, 350, 50, -50, 25, 25);
-    gameObjects = [ball, goal, player1, obs1, obs2, obs3];
-    console.log(gameObjects)
-    document.addEventListener("keydown", function(e){
-      console.log(player1.y)
-        movePlayer(e)
-      console.log(player1.y)  
-    })
-    document.addEventListener('keydown', function(e){
-        shootBall(e)
-    })
-}
-let secondsPassed = 0;
-let oldTimeStamp = 0;
+
 
 function gameLoop(timeStamp){
     secondsPassed = (timeStamp - oldTimeStamp) / 2000;
