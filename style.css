@@ -12,6 +12,7 @@ button{
     z-index: 1;
     font-size: 40px;
     box-shadow: 4px 4px  black;
+    border-radius: 10px
 }
 
 .hide {
