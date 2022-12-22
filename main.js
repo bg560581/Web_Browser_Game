@@ -1,27 +1,30 @@
 let canvas;
 let context;
-const button = document.getElementById('button')
 
-window.onload = init;
-// window.onload = button
-// button.textContent = 'Start Game'
-// button.addEventListener('click', function(){
-    // init()
-    // startGameHide(button)
-// });
+const button = document.getElementById('startGame')
+button.innerText = 'Start'
+button.addEventListener('click', function(){
+    init()
+    this.classList.add("hide")
+});
+
+
+console.log(button)
+
+// window.onload = init;
+
 function init(){
     canvas = document.getElementById('canvas');
     context = canvas.getContext('2d');
     createWorld()
-    
     window.requestAnimationFrame(gameLoop);
 }
 
-function startGameHide(button){
-   if (init() == false){
-button.style.display = 'block'}
-else {button.style.display == 'none'}
-}
+// function startGameHide(button){
+//    if (init() == false){
+// button.style.display = 'block'}
+// else {button.style.display == 'none'}
+// }
 
 const canvasWidth = 750;
 const canvasHeight = 400;
@@ -169,6 +172,11 @@ let hitGoal = false
                     score++
                 } else if(obj2.player1 == false){
                     alert("YOU LOSE!")
+                    document.location.reload();
+                    clearInterval(window.requestAnimationFrame(gameLoop)
+                    )
+
+
                 }                
             }
         }
